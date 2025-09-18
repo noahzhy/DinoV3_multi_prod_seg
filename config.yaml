@@ -1,0 +1,36 @@
+model_name: "FineTunedCropper"
+
+seed: 42
+lr: &lr 2.0e-5
+batch_size: &bs 16
+num_epochs: &ne 20
+input_size: &side 224
+input_shape: [3, *side, *side]
+num_classes: 10
+
+
+pretrain_dir: "./pretrain/dinov3-vits16-pretrain"
+
+
+TrainingArguments:
+  output_dir: "./checkpoints_dinov3_food101"
+  learning_rate: *lr
+  per_device_train_batch_size: *bs
+  per_device_eval_batch_size: *bs
+  num_train_epochs: *ne
+  warmup_steps: 500
+  weight_decay: 0.01
+  logging_dir: './logs'
+  logging_steps: 10
+
+
+## config datasets
+
+# Train:
+
+
+# Val:
+
+
+# Test:
+
